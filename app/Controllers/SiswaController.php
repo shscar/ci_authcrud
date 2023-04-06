@@ -13,6 +13,6 @@ class SiswaController extends BaseController
             'message' => 'Hello World!',
         ];
 
-        return view('layouts/master', $data);
+        return view('index', $data);
     }
 }
