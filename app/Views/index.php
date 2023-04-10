@@ -11,6 +11,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="table-wrap">
+                <a href="<?= route_to('tambah-siswa') ?>" class="btn btn-primary">Tambah Data Siswa</a>
                 <table class="table table-striped text-center">
                     <thead>
                         <tr>

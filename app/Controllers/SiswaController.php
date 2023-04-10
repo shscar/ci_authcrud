@@ -15,4 +15,14 @@ class SiswaController extends BaseController
 
         return view('index', $data);
     }
+
+    public function create()
+    {
+        $data = [
+            'title'   => 'Create Data siswa',
+        ];
+
+        return view('crud/create');
+    }
+
 }

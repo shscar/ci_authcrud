@@ -34,6 +34,13 @@ $routes->set404Override();
 
 $routes->get('/', 'SiswaController::index');
 
+// route untuk menampilkan view create form
+$routes->get('/create', 'SiswaController::create', ['as' => 'tambah-siswa']);
+
+// route untuk menyimpan data, perhatikan bahwa fungsi route nya adalah post
+$routes->post('/create', 'SiswaController::store', ['as' => 'store-siswa']);
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
