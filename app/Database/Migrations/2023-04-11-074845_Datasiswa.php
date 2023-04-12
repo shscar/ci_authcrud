@@ -38,6 +38,15 @@ class Datasiswa extends Migration
             'no_tlp' => [
                 'type' => 'VARCHAR',
                 'constraint' => 20
+            ],
+            'created_at' => [
+                'type' => 'datetime',
+                'null' => true,
+            ],
+            'updated_at' => [
+                'type' => 'datetime',
+                'null' => true,
+                'after' => 'created_at',
             ]
         ]);
         $this->forge->addKey('id', true);

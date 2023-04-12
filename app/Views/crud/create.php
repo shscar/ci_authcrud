@@ -16,8 +16,8 @@
                 <input type="text" name="nama" class="form-control" id="nama" placeholder="Masukkan nama Lengkap" required>
             </div>
             <div class="mb-3">
-                <label for="jk" class="form-label">Jenis Kelamin</label>
-                <select name="jk" class="form-select" aria-label="Default select example">
+                <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
+                <select name="jenis_kelamin" class="form-select" aria-label="Default select example">
                     <option selected>Pilih Jenis kelamin</option>
                     <option value="Perempuan">Perempuan</option>
                     <option value="Laki-laki">Laki-laki</option>
