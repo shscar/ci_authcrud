@@ -21,11 +21,30 @@
                             <th scope="col">Jenis Kelamin</th>
                             <th scope="col">Kelas</th>
                             <th scope="col">Jurusan</th>
-                            <th scope="col">No.tlp</th>
+                            <th scope="col">No. Telepon</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
+                    
                     <tbody>
+                        <?php $no = 1; foreach ($siswa as $row) : ?>
+                            <tr>
+                                <td><?= $no++ ?></td>
+                                <td><?= $row['nisn'] ?></td>
+                                <td><?= $row['nama'] ?></td>
+                                <td><?= $row['jenis_kelamin'] ?></td>
+                                <td><?= $row['kelas'] ?></td>
+                                <td><?= $row['jurusan'] ?></td>
+                                <td><?= $row['no_tlp'] ?></td>
+                                <td>
+                                    <a href="#" class="btn btn-warning">Edit</a>
+                                    <a href="#" class="btn btn-danger">Hapus</a>
+                                </td>
+                            </tr>
+                        <?php endforeach ?>
+                    </tbody>
+
+                    <!-- <tbody>
                         <tr>
                             <th scope="row">1</th>
                             <td>3646</td>
@@ -35,12 +54,12 @@
                             <td>Rekayasa Perangkat Lunak</td>
                             <td>0812345678964</td>
                             <td>
-                                <!-- <a href="#" class="btn btn-success">Detail</a> -->
+                                <a href="#" class="btn btn-success">Detail</a>
                                 <a href="#" class="btn btn-warning">Edit</a>
                                 <a href="#" class="btn btn-danger">Hapus</a>
                             </td>
                         </tr>
-                    </tbody>
+                    </tbody> -->
                 </table>
             </div>
         </div>

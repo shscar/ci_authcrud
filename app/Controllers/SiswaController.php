@@ -7,11 +7,18 @@ use App\Models\SiswaModel;
 
 class SiswaController extends BaseController
 {
+    protected $siswaModel;
+
+    public function __construct()
+    {
+        $this->siswaModel = new SiswaModel();
+    }
+
     public function index()
     {
         $data = [
-            'title'   => 'Dashboard',
-            'message' => 'Hello World!',
+            'title' => 'Data siswa',
+            'siswa' => $this->siswaModel->findAll()
         ];
 
         return view('index', $data);
@@ -23,7 +30,7 @@ class SiswaController extends BaseController
             'title'   => 'Create Data siswa',
         ];
 
-        return view('crud/create');
+        return view('crud/create', $data);
     }
 
     public function store()
