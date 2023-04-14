@@ -4,7 +4,7 @@
 
     <div class="container mt-5">
         <h1 class="mb-4 text-center">Form Tambah Siswa</h1>
-        <form action="<?= route_to('storeJurusan') ?>" method="POST">
+        <form action="<?= route_to('store-siswa') ?>" method="POST">
             <?= csrf_field(); ?>
 
             <div class="mb-3">

@@ -40,6 +40,11 @@ $routes->get('/create', 'SiswaController::create', ['as' => 'tambah-siswa']);
 // route untuk menyimpan data, perhatikan bahwa fungsi route nya adalah post
 $routes->post('/create', 'SiswaController::store', ['as' => 'store-siswa']);
 
+// route untuk menampilkan view edit form
+$routes->get('/edit/(:num)', 'SiswaController::edit/$1', ['as' => 'edit-siswa']);
+
+// route untuk update data, perhatikan bahwa fungsi route nya adalah put
+$routes->put('/update/(:num)', 'SiswaController::update/$1', ['as' => 'update-siswa']);
 
 /*
  * --------------------------------------------------------------------

@@ -63,4 +63,42 @@ class SiswaController extends BaseController
         return redirect()->to('/')->with('success', 'Data siswa berhasil disimpan.');
     }
 
+    public function edit($id)
+    {
+        // Mengambil data siswa dari database berdasarkan ID
+        $data = [
+            'title' => 'Data siswa',
+            'siswa' => $this->siswaModel->find($id)
+        ];
+
+        // Menampilkan view edit form dengan data siswa
+        return view('crud/edit', $data);
+    }
+
+    public function update($id)
+    {
+        // Mengambil data siswa dari database berdasarkan ID
+        $siswaModel = new SiswaModel();
+        $siswa = $siswaModel->find($id);
+
+        // Memvalidasi inputan data siswa
+        $validation =  \Config\Services::validation();
+        $validation->setRules([
+            'nama' => 'required',
+            'kelas' => 'required'
+        ]);
+
+        if (!$validation->run($this->request->getPost())) {
+            return redirect()->to(route_to('edit-siswa', $id))->withInput()->with('validation', $validation);
+        }
+
+        // Memperbarui data siswa dengan data yang diinputkan dari form
+        $siswa->nama = $this->request->getPost('nama');
+        $siswa->kelas = $this->request->getPost('kelas');
+        $siswaModel->save($siswa);
+
+        // Mengirimkan pesan sukses dan mengarahkan ke halaman daftar siswa
+        return redirect()->to(route_to('daftar-siswa'))->with('success', 'Data siswa berhasil diperbarui.');
+    }
+
 }

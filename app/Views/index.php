@@ -37,33 +37,18 @@
                                 <td><?= $row['jurusan'] ?></td>
                                 <td><?= $row['no_tlp'] ?></td>
                                 <td>
-                                    <a href="#" class="btn btn-warning">Edit</a>
+                                    <!-- <a href="#" class="btn btn-success">Detail</a> -->
+                                    <a href="<?= route_to('edit-siswa', $row['id']) ?>" class="btn btn-warning">Edit</a>
                                     <a href="#" class="btn btn-danger">Hapus</a>
                                 </td>
                             </tr>
                         <?php endforeach ?>
                     </tbody>
 
-                    <!-- <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>3646</td>
-                            <td>Verlina</td>
-                            <td>Perempuan</td>
-                            <td>11</td>
-                            <td>Rekayasa Perangkat Lunak</td>
-                            <td>0812345678964</td>
-                            <td>
-                                <a href="#" class="btn btn-success">Detail</a>
-                                <a href="#" class="btn btn-warning">Edit</a>
-                                <a href="#" class="btn btn-danger">Hapus</a>
-                            </td>
-                        </tr>
-                    </tbody> -->
                 </table>
             </div>
         </div>
     </div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br>
 
 <?= $this->endSection() ?>
