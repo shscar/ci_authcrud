@@ -36,10 +36,11 @@
                 <input type="number" name="no_tlp" class="form-control" id="no_tlp" value="<?= $siswa['no_tlp'] ?>" placeholder="0812345678900" required>
             </div>
             <div class="text-end">
-                <a href="<?= route_to('home') ?>" class="btn btn-outline-secondary mr-2" role="button">Batal</a>
+                <a href="javascript:history.back()" class="btn btn-outline-secondary mr-2" role="button">Batal</a>
                 <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
         </form>
     </div>
+    <br>
 
 <?= $this->endSection() ?>

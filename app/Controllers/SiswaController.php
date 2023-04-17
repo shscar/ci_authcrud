@@ -78,27 +78,37 @@ class SiswaController extends BaseController
     public function update($id)
     {
         // Mengambil data siswa dari database berdasarkan ID
-        $siswaModel = new SiswaModel();
-        $siswa = $siswaModel->find($id);
+        $siswa = $this->siswaModel->find($id);
 
-        // Memvalidasi inputan data siswa
-        $validation =  \Config\Services::validation();
-        $validation->setRules([
-            'nama' => 'required',
-            'kelas' => 'required'
-        ]);
-
-        if (!$validation->run($this->request->getPost())) {
-            return redirect()->to(route_to('edit-siswa', $id))->withInput()->with('validation', $validation);
+        if (!$siswa) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         }
-
+    
+        // Memvalidasi inputan data siswa
+        $rules = [
+            'nama' => 'required|min_length[5]|max_length[50]',
+            'jenis_kelamin' => 'required|in_list[Laki-laki,Perempuan]',
+            'kelas' => 'required|min_length[2]|max_length[10]',
+            'jurusan' => 'required|min_length[3]|max_length[50]',
+            'no_tlp' => 'required|numeric|max_length[15]',
+        ];
+    
+        if (!$this->validate($rules)) {
+            $validation = \Config\Services::validation();
+            return redirect()->back()->withInput()->with('errors', $validation->getErrors());
+        }
+    
         // Memperbarui data siswa dengan data yang diinputkan dari form
-        $siswa->nama = $this->request->getPost('nama');
-        $siswa->kelas = $this->request->getPost('kelas');
-        $siswaModel->save($siswa);
-
-        // Mengirimkan pesan sukses dan mengarahkan ke halaman daftar siswa
-        return redirect()->to(route_to('daftar-siswa'))->with('success', 'Data siswa berhasil diperbarui.');
+        $this->siswaModel->update($id, [
+            'nisn' => $this->request->getPost('nisn'),
+            'nama' => $this->request->getPost('nama'),
+            'jenis_kelamin' => $this->request->getPost('jenis_kelamin'),
+            'kelas' => $this->request->getPost('kelas'),
+            'jurusan' => $this->request->getPost('jurusan'),
+            'no_tlp' => $this->request->getPost('no_tlp')
+        ]);
+    
+        return redirect()->to('/')->with('success', 'Data siswa berhasil diupdate');
     }
-
+    
 }
