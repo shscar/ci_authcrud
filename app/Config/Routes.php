@@ -29,8 +29,6 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-// $routes->get('/', 'Home::index');
-// $routes->get('/home', 'Home::view');
 
 $routes->get('/', 'SiswaController::index');
 
@@ -45,6 +43,9 @@ $routes->get('/edit/(:num)', 'SiswaController::edit/$1', ['as' => 'edit-siswa'])
 
 // route untuk update data, perhatikan bahwa fungsi route nya adalah put
 $routes->put('/update/(:num)', 'SiswaController::update/$1', ['as' => 'update-siswa']);
+
+// route untuk menghapus data
+$routes->delete('/delete/(:num)', 'SiswaController::delete/$1', ['as' => 'delete-siswa']);
 
 /*
  * --------------------------------------------------------------------

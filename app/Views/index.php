@@ -36,10 +36,13 @@
                                 <td><?= $row['kelas'] ?></td>
                                 <td><?= $row['jurusan'] ?></td>
                                 <td><?= $row['no_tlp'] ?></td>
-                                <td>
-                                    <!-- <a href="#" class="btn btn-success">Detail</a> -->
-                                    <a href="<?= route_to('edit-siswa', $row['id']) ?>" class="btn btn-warning">Edit</a>
-                                    <a href="#" class="btn btn-danger">Hapus</a>
+                                <td class="d-flex justify-content-between align-items-center">
+                                    <a href="<?= route_to('edit-siswa', $row['id']) ?>" class="btn btn-warning ">Edit</a>
+                                    <form method="POST" action="<?= route_to('delete-siswa', $row['id']) ?>">
+                                        <?= csrf_field(); ?>
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
+                                    </form>
                                 </td>
                             </tr>
                         <?php endforeach ?>
@@ -49,6 +52,6 @@
             </div>
         </div>
     </div>
-    <br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br>
     
 <?= $this->endSection() ?>

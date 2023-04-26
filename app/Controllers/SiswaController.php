@@ -110,5 +110,12 @@ class SiswaController extends BaseController
     
         return redirect()->to('/')->with('success', 'Data siswa berhasil diupdate');
     }
+
+    public function delete($id)
+    {
+        $this->siswaModel->delete($id);
+        session()->setFlashdata('success', 'Data siswa berhasil dihapus.');
+        return redirect()->to('/');
+    }
     
 }
