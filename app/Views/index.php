@@ -11,7 +11,19 @@
     <div class="row">
         <div class="col-md-12">
             <div class="table-wrap">
-                <a href="<?= route_to('tambah-siswa') ?>" class="btn btn-success">Tambah Data Siswa</a>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div>
+                        <a href="<?= route_to('tambah-siswa') ?>" class="btn btn-success mr-2">Tambah Data Siswa</a>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button">Cari</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <table class="table table-striped text-center">
                     <thead>
                         <tr>
