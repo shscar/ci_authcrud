@@ -44,23 +44,38 @@ class SiswaController extends BaseController
             'kelas' => 'required|max_length[20]',
             'jurusan' => 'required|max_length[50]',
             'no_tlp' => 'required|Numeric',
+            'image' => [
+                'uploaded[image]',
+                'mime_in[image,image/jpg,image/jpeg,image/gif,image/png]',
+                'max_size[image,2048]',
+            ],
         ]);
+
         if (!$validation->withRequest($this->request)->run()) {
             return redirect()->back()->withInput()->with('errors', $validation->getErrors());
         }
 
-        // Simpan data ke database menggunakan model
+        // Ambil data dari form
         $siswaModel = new SiswaModel();
-        $siswaModel->insert([
+        $data = [
             'nisn' => $this->request->getPost('nisn'),
             'nama' => $this->request->getPost('nama'),
             'jenis_kelamin' => $this->request->getPost('jenis_kelamin'),
             'kelas' => $this->request->getPost('kelas'),
             'jurusan' => $this->request->getPost('jurusan'),
             'no_tlp' => $this->request->getPost('no_tlp'),
-        ]);
+            'image' => $this->request->getFile('image')->getName(),
+        ];
+
+        // Simpan data ke database
+        $siswaModel->insert($data);
+
+        // Simpan foto ke direktori
+        $foto = $this->request->getFile('image');
+        $foto->move('assets/images', $foto->getName());
 
         return redirect()->to('/')->with('success', 'Data siswa berhasil disimpan.');
+
     }
 
     public function edit($id)
