@@ -28,13 +28,14 @@
                     <thead>
                         <tr>
                             <th scope="col">No</th>
+                            <th scope="col">Foto</th>
                             <th scope="col">NISN</th>
                             <th scope="col">Nama</th>
                             <th scope="col">Jenis Kelamin</th>
                             <th scope="col">Kelas</th>
                             <th scope="col">Jurusan</th>
                             <th scope="col">No. Telepon</th>
-                            <th scope="col">Aksi</th>
+                            <th colspan="2">Aksi</th>
                         </tr>
                     </thead>
                     
@@ -42,14 +43,19 @@
                         <?php $no = 1; foreach ($siswa as $row) : ?>
                             <tr>
                                 <td><?= $no++ ?></td>
+                                <td>
+                                    <img src="<?= base_url('assets/images/' . $row['image']) ?>" class="rounded mx-auto d-block" height="80" alt="Foto Profil">
+                                </td>
                                 <td><?= $row['nisn'] ?></td>
                                 <td><?= $row['nama'] ?></td>
                                 <td><?= $row['jenis_kelamin'] ?></td>
                                 <td><?= $row['kelas'] ?></td>
                                 <td><?= $row['jurusan'] ?></td>
                                 <td><?= $row['no_tlp'] ?></td>
-                                <td class="d-flex justify-content-between align-items-center">
-                                    <a href="<?= route_to('edit-siswa', $row['id']) ?>" class="btn btn-warning ">Edit</a>
+                                <td>
+                                    <a href="<?= route_to('edit-siswa', $row['id']) ?>" class="btn btn-warning">Edit</a>
+                                </td>
+                                <td>
                                     <form method="POST" action="<?= route_to('delete-siswa', $row['id']) ?>">
                                         <?= csrf_field(); ?>
                                         <input type="hidden" name="_method" value="DELETE">
@@ -64,6 +70,6 @@
             </div>
         </div>
     </div>
-    <br><br><br><br><br><br><br>
+    <br><br><br><br><br><br>
     
 <?= $this->endSection() ?>
