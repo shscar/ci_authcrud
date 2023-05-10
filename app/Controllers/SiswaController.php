@@ -21,6 +21,13 @@ class SiswaController extends BaseController
             'siswa' => $this->siswaModel->findAll()
         ];
 
+        $keyword = $this->request->getVar('keyword');
+        $column = $this->request->getVar('column');
+
+        if ($keyword && $column) {
+            $data['siswa'] = $this->siswaModel->search($keyword, $column);
+        }
+
         return view('index', $data);
     }
 
@@ -183,4 +190,5 @@ class SiswaController extends BaseController
         // Redirect ke halaman sebelumnya
         return redirect()->back();
     }
+
 }

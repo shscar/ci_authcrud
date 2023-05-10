@@ -16,14 +16,25 @@
                         <a href="<?= route_to('tambah-siswa') ?>" class="btn btn-success mr-2">Tambah Data Siswa</a>
                     </div>
                     <div class="col-sm-4">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search">
+                        <form action="<?= route_to('search-data') ?>" method="get" class="input-group">
+                            <input type="text" class="form-control" name="keyword" placeholder="Search">
+                            <select name="column" id="column" class="form-select">
+                                <option value="Semua">Semua</option>
+                                <option value="nisn">NISN</option>
+                                <option value="nama">Nama</option>
+                                <option value="jenis_kelamin">Jenis Kelamin</option>
+                                <option value="kelas">Kelas</option>
+                                <option value="jurusan">Jurusan</option>
+                                <option value="no_tlp">No. Telepon</option>
+                            </select>
                             <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button">Cari</button>
+                                <button class="btn btn-outline-success" type="submit">Cari</button>
                             </div>
-                        </div>
+                        </form>
                     </div>
+
                 </div>
+
                 <table class="table table-striped text-center">
                     <thead>
                         <tr>
@@ -70,6 +81,5 @@
             </div>
         </div>
     </div>
-    <br><br><br><br><br><br>
     
 <?= $this->endSection() ?>

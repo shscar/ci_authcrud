@@ -39,4 +39,20 @@ class SiswaModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function search($keyword, $column)
+    {
+        if ($column === 'Semua' || empty($column)) {
+            return $this->like('nisn', $keyword)
+                ->orLike('nama', $keyword)
+                ->orLike('jenis_kelamin', $keyword)
+                ->orLike('kelas', $keyword)
+                ->orLike('jurusan', $keyword)
+                ->orLike('no_tlp', $keyword)
+                ->findAll();
+        } else {
+            return $this->like($column, $keyword)->findAll();
+        }
+    }
+
 }
