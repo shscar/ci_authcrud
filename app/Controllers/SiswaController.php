@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\SiswaModel;
 
+use CodeIgniter\I18n\Time;
+
 class SiswaController extends BaseController
 {
     protected $siswaModel;
@@ -27,8 +29,12 @@ class SiswaController extends BaseController
         if ($keyword && $column) {
             $data['siswa'] = $this->siswaModel->search($keyword, $column);
         }
+        $time = Time::now('Asia/Jakarta', 'id_ID');
+        // $time->setTimezone('America/Boise');
 
-        return view('index', $data);
+        echo $time;
+
+        // return view('index', $data);
     }
 
     public function create()
