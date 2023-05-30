@@ -81,6 +81,17 @@
             </div>
         </div>
     </div>
-    <br>
+
+    <script>
+        $(function(){
+
+            <?php if(session()->get("success")) { ?>
+                Swal.fire({
+                    icon: 'success',
+                    text: 'Data berhasil disimpan!'
+                })
+            <?php } ?>
+        });
+    </script>
     
 <?= $this->endSection() ?>

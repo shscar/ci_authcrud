@@ -29,12 +29,8 @@ class SiswaController extends BaseController
         if ($keyword && $column) {
             $data['siswa'] = $this->siswaModel->search($keyword, $column);
         }
-        $time = Time::now('Asia/Jakarta', 'id_ID');
-        // $time->setTimezone('America/Boise');
 
-        echo $time;
-
-        // return view('index', $data);
+        return view('index', $data);
     }
 
     public function create()
