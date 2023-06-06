@@ -76,8 +76,9 @@
                             </tr>
                         <?php endforeach ?>
                     </tbody>
-
                 </table>
+                <?= $pager->links('siswa', 'bootstrap_pagination') ?>
+
             </div>
         </div>
     </div>

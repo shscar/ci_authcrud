@@ -5,8 +5,6 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\SiswaModel;
 
-use CodeIgniter\I18n\Time;
-
 class SiswaController extends BaseController
 {
     protected $siswaModel;
@@ -18,9 +16,13 @@ class SiswaController extends BaseController
 
     public function index()
     {
+        $pager = \Config\Services::pager();
+        dd($pager);
+
         $data = [
             'title' => 'Data siswa',
-            'siswa' => $this->siswaModel->findAll()
+            'siswa' => $this->siswaModel->paginate(4, 'siswa'),
+            'pager' => $this->siswaModel->pager
         ];
 
         $keyword = $this->request->getVar('keyword');
