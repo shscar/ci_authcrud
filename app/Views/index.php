@@ -50,8 +50,9 @@
                         </tr>
                     </thead>
                     
-                    <tbody>
-                        <?php $no = 1; foreach ($siswa as $row) : ?>
+                    <tbody> 
+                        <?php $no = count($siswa) * $currentPage - (count($siswa) - 1); ?>
+                        <?php foreach ($siswa as $row) : ?>
                             <tr>
                                 <td><?= $no++ ?></td>
                                 <td>

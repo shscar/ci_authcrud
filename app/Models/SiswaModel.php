@@ -53,6 +53,73 @@ class SiswaModel extends Model
         } else {
             return $this->like($column, $keyword)->findAll();
         }
-    }
+    } 
+    
+    // public function search($keyword = '', $column = '', $current_page = 1, $per_page = 6)
+    // {
+    //     $query = $this->table($this->table);
+        
+    //     if (!empty($keyword)) {
+    //         if (empty($column) || $column === 'Semua') {
+    //             $query = $query->groupStart()
+    //                            ->like('nisn', $keyword)
+    //                            ->orLike('nama', $keyword)
+    //                            ->orLike('jenis_kelamin', $keyword)
+    //                            ->orLike('kelas', $keyword)
+    //                            ->orLike('jurusan', $keyword)
+    //                            ->orLike('no_tlp', $keyword)
+    //                            ->groupEnd();
+    //         } else {
+    //             $query = $query->like($column, $keyword);
+    //         }
+    //     }
+        
+        // $result = [
+        //     'siswa'    => $query->paginate($per_page, $this->table, $current_page),
+        //     'pager'     => $this->pager,
+        //     'numbering' => ($per_page * $current_page) - ($per_page - 1)
+        // ];
+
+        // return $result;
+    // }
+
+    // public function search(string $keyword = '', int $current_page = 1,int $per_page = 6)
+    // {
+    //     if($keyword){
+    //        $lantai = $this->table($this->table)
+    //         ->like('lantai', $keyword)
+    //         ->orLike('keterangan', $keyword);
+    //     } else {
+    //         $lantai = $this;
+    //     }
+    //     return [
+    //         'lantai'  => $lantai->paginate($this->per_page, $this->table),
+    //         'pager'   => $this->pager,
+    //         'numbering' => ($per_page * $current_page) - ($this->per_page - 1)
+    //     ];
+    // }
+
+    // public function search(string $keyword = '', $column, int $current_page = 1, int $per_page = 6)
+    // {
+
+    //     if ($column === 'Semua' || empty($column)) {
+    //         $builder->groupStart()
+    //             ->like('nisn', $keyword)
+    //             ->orLike('nama', $keyword)
+    //             ->orLike('jenis_kelamin', $keyword)
+    //             ->orLike('kelas', $keyword)
+    //             ->orLike('jurusan', $keyword)
+    //             ->orLike('no_tlp', $keyword)
+    //             ->groupEnd();
+    //     } else {
+    //         $this->like($column, $keyword);
+    //     }
+
+    //     return [
+    //         'lantai'  => $this->getResult(),
+    //         'pager'   => $this->pager,
+    //         'numbering' => ($per_page * $current_page) - ($this->per_page - 1)
+    //     ];
+    // }
 
 }

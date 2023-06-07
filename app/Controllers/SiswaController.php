@@ -16,13 +16,13 @@ class SiswaController extends BaseController
 
     public function index()
     {
-        $pager = \Config\Services::pager();
-        dd($pager);
+        $currentPage = $this->request->getVar('page_siswa') ?? 1;
 
         $data = [
             'title' => 'Data siswa',
             'siswa' => $this->siswaModel->paginate(4, 'siswa'),
-            'pager' => $this->siswaModel->pager
+            'pager' => $this->siswaModel->pager,
+            'currentPage' => $currentPage
         ];
 
         $keyword = $this->request->getVar('keyword');
