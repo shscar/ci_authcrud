@@ -9,9 +9,33 @@ class SiswaController extends BaseController
 {
     protected $siswaModel;
 
+    protected $auth;
+
     public function __construct()
     {
         $this->siswaModel = new SiswaModel();
+        $user = auth()->user();
+        if (! auth()->user()) {
+            return redirect()->to(config('Auth')->loginRedirect());
+            // return redirect()->back()->with('error', 'You do not have permissions to access that page.');
+        }
+        
+        // $this->auth = service('auth');
+        // // $users = auth()->getProvider();
+        // if (! auth()->loggedIn()) {
+        //     return redirect()->to(config('Auth')->loginRedirect());
+        // }
+
+        // $credentials = [
+        //     'email'    => $this->request->getPost('email'),
+        //     'password' => $this->request->getPost('password')
+        // ];
+        
+        // $loginAttempt = auth()->attempt($credentials);
+        
+        // if (! $loginAttempt->isOK()) {
+        //     return redirect()->back()->with('error', $loginAttempt->reason());
+        // }
     }
 
     public function index()

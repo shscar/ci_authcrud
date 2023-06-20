@@ -30,8 +30,10 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 
-$routes->get('/', 'SiswaController::index', ['as' => 'search-data']);
+service('auth')->routes($routes);
 
+$routes->get('/', 'SiswaController::index', ['as' => 'search-data']);
+    
 // route untuk menampilkan view create form
 $routes->get('/create', 'SiswaController::create', ['as' => 'tambah-siswa']);
 
@@ -46,9 +48,7 @@ $routes->put('/update/(:num)', 'SiswaController::update/$1', ['as' => 'update-si
 
 // route untuk menghapus data
 $routes->delete('/delete/(:num)', 'SiswaController::delete/$1', ['as' => 'delete-siswa']);
-
-// $routes->get('/', 'SiswaController::searchData');
-
+    
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -29,7 +29,11 @@
     </ul>
 
     <div class="col-md-3 text-end">
-    <button type="button" class="btn btn-outline-primary me-2">Login</button>
-    <button type="button" class="btn btn-primary">Sign-up</button>
+        <?php if (auth()->loggedIn()) : ?>
+            <a class="btn btn-outline-light btn-warning ml-3 px-4" href="<?= url_to('logout') ?>">Logout</a>
+        <?php else : ?>
+            <a class="btn btn-outline-primary ml-3 px-4" href="<?= url_to('login') ?>">Login</a>
+            <a class="btn btn-info btn-primary ml-3 px-4" href="<?= url_to('register') ?>">Daftar</a>
+        <?php endif ?>
     </div>
 </header>
