@@ -10,27 +10,27 @@
         },
         {         
             "name": "Pemain 003",   
-            "highscore": "001"
+            "highscore": "000"
         },
         {         
             "name": "Pemain 004",
-            "highscore": "001"
+            "highscore": "000"
         },
         {
             "name": "Pemain 005",
-            "highscore": "001"
+            "highscore": "000"
         },
         {
             "name": "Pemain 006",
-            "highscore": "001"
+            "highscore": "000"
         },
         {
             "name": "Pemain 007",
-            "highscore": 1
+            "highscore": "000"
         },
         {
             "name": "Pemain 008",
-            "highscore": 1
+            "highscore": "000"
         }
     ]
 }
