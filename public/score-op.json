@@ -1,9 +1,36 @@
 {
-    "data": [
-        {"nama": "Andi", "score": 85},
-        {"nama": "Budi", "score": 92},
-        {"nama": "Cindy", "score": 78},
-        {"nama": "Dewi", "score": 95},
-        {"nama": "Eka", "score": 88}
+    "players":[
+        {               
+            "name": "Dhimas",
+            "highscore": 8
+        },
+        {            
+            "name": "Malik",
+            "highscore": 8
+        },
+        {         
+            "name": "Pemain 003",   
+            "highscore": 001
+        },
+        {         
+            "name": "Pemain 004",
+            "highscore": 001
+        },
+        {
+            "name": "Pemain 005",
+            "highscore": 001
+        },
+        {
+            "name": "Pemain 006",
+            "highscore": 001
+        },
+        {
+            "name": "Pemain 007",
+            "highscore": 001
+        },
+        {
+            "name": "Pemain 008",
+            "highscore": 001
+        }
     ]
 }
